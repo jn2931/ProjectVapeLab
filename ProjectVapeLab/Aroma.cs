@@ -6,8 +6,12 @@ namespace ProjectVapeLab
 {
     class Aroma
     {
+        public Aroma()
+        {
+
+        }
         public string name;
-        private int percentage;
+        public int percentage;
         public Aroma(string aromaName,int aromaPercentage)
         {
             name = aromaName;
