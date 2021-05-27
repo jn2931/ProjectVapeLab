@@ -6,6 +6,7 @@ namespace ProjectVapeLab
 {
     class NeutralBase
     {
-        float volume;
+       public float volume;
+        public float percentage;
     }
 }

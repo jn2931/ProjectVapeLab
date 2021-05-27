@@ -12,11 +12,11 @@ namespace ProjectVapeLab
             Aroma[] aromas = new Aroma[aromaNumber];
             for (int i = 0; i < aromas.Length; i++)
             {
-                aromas[i] = new Aroma();
+                aromas[i] = new Aroma();                        // creating needed aroma objects
             }
 
                 for (int i = 0; i < aromas.Length; i++)
-            {
+            {                                                  // collecting aroma's names and percentages from user
                 Console.WriteLine("Please enter the name of aroma nr." + (i + 1));
                 aromas[i].name = Console.ReadLine();
                 Console.WriteLine("Please enter the sugested percentage of aroma nr." + (i + 1));
@@ -27,6 +27,20 @@ namespace ProjectVapeLab
             finalProduct.volume = Convert.ToInt32(Console.ReadLine());
             NeutralBase nbase = new NeutralBase();
             float aromaSumPercentage = 0;
+            for(int i=0;i<aromas.Length;i++)
+            {
+                aromaSumPercentage = aromaSumPercentage + aromas[i].percentage;
+            }
+            nbase.percentage = 100 - aromaSumPercentage;
+            nbase.volume = (nbase.percentage / 100) * finalProduct.volume;
+
+            for (int i = 0; i < aromas.Length; i++)
+            {
+                aromas[i].volume = (aromas[i].percentage / 100) * finalProduct.volume;
+                Console.WriteLine(aromas[i].name + ": " + aromas[i].volume + "ml.");
+            }
+            Console.WriteLine("Neutral base/nicotine base: " + nbase.volume + "ml.");
+            Console.ReadKey();
         }
     }
 }

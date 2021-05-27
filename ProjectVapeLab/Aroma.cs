@@ -11,7 +11,8 @@ namespace ProjectVapeLab
 
         }
         public string name;
-        public int percentage;
+        public float percentage;
+        public float volume;
         public Aroma(string aromaName,int aromaPercentage)
         {
             name = aromaName;
